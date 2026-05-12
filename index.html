@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Mayala-Luneko Loyde</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Abril+Fatface&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fff;--cream:#e5d6cc;--aged:#f3ede0;
+  --bx:#6b1d2a;--bx-l:#8a2a3a;--bx-soft:rgba(107,29,42,0.06);
+  --blk:#1a1a1a;--dk:#2d2d2d;--grey:#666;--lt:#e8e4dc;
+  --tape:rgba(230,210,140,0.38);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);font-family:'Libre Baskerville',serif;color:var(--blk);overflow-x:hidden}
+
+/* ══ NAV ══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bx);box-shadow:0 2px 20px rgba(107,29,42,0.3);display:flex;justify-content:center;flex-wrap:wrap}
+nav a{color:rgba(255,255,255,0.8);text-decoration:none;font-family:'Special Elite',cursive;font-size:.76rem;padding:14px 18px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
+nav a:hover{background:rgba(0,0,0,0.25);color:#fff}
+
+/* ══ HERO ══ */
+.hero{
+  margin-top:48px;padding:80px 20px 70px;text-align:center;
+  min-height:95vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  background:var(--cream);border-bottom:4px solid var(--bx);position:relative;overflow:hidden;
+}
+/* Decorative grid paper bg */
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.04;
+  background-image:
+    linear-gradient(rgba(0,0,0,.15) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,.15) 1px,transparent 1px);
+  background-size:25px 25px;
+}
+
+/* CUTOUT TITLE */
+.cutout{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:5px 8px;max-width:900px;animation:fadeIn 1s both}
+.cutout .L{display:inline-block;padding:6px 10px;font-size:clamp(2.5rem,6vw,4.5rem);line-height:1;transition:transform .3s,box-shadow .3s;cursor:default}
+.cutout .L:hover{transform:scale(1.18) rotate(-4deg)!important;z-index:2;box-shadow:5px 6px 20px rgba(0,0,0,.25)}
+.L.a{font-family:'Playfair Display',serif;font-weight:900;background:var(--white);color:var(--blk);border:1px solid var(--lt);box-shadow:1px 2px 4px rgba(0,0,0,.07);transform:rotate(-2.5deg)}
+.L.b{font-family:'Bodoni Moda',serif;font-weight:900;background:var(--dk);color:var(--white);transform:rotate(1.8deg);box-shadow:2px 2px 6px rgba(0,0,0,.2)}
+.L.c{font-family:'Courier Prime',monospace;font-weight:700;background:var(--white);color:var(--bx);border:2px solid var(--bx);transform:rotate(-1deg)}
+.L.d{font-family:'UnifrakturMaguntia',cursive;background:var(--bx);color:var(--white);transform:rotate(3deg);box-shadow:2px 2px 6px rgba(107,29,42,.3)}
+.L.e{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;background:var(--aged);color:var(--bx);border:1px solid var(--bx);transform:rotate(-3deg)}
+.L.sp{background:none!important;border:none!important;box-shadow:none!important;width:18px}.L.sp:hover{transform:none!important;box-shadow:none!important}
+
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.6rem);color:var(--bx);letter-spacing:7px;font-weight:600;text-transform:uppercase;animation:fadeIn 1s .2s both}
+.hero-sub{font-family:'Special Elite',cursive;font-size:clamp(.72rem,1.4vw,.85rem);color:var(--grey);letter-spacing:3px;text-transform:uppercase;animation:fadeIn 1s .35s both}
+
+/* PHOTO */
+.photo-wrap{position:relative;display:inline-block;animation:fadeIn 1s .5s both}
+.photo-frame{width:200px;height:255px;background:var(--white);padding:10px 10px 44px;box-shadow:5px 7px 25px rgba(0,0,0,.18);transform:rotate(-4deg);transition:transform .5s cubic-bezier(.25,.8,.25,1);position:relative;border:1px solid var(--lt)}
+.photo-frame:hover{transform:rotate(1deg) scale(1.06)}
+.photo-inner{width:100%;height:100%;overflow:hidden;clip-path:polygon(0% 2%,3% 0%,7% 3%,11% .5%,15% 2.5%,19% 0%,23% 3%,27% 1%,31% 2.5%,35% 0%,39% 3%,43% .5%,47% 2%,51% 3%,55% .5%,59% 2.5%,63% 0%,67% 3%,71% 1%,75% 2.5%,79% 0%,83% 3%,87% 1%,91% 2.5%,95% .5%,100% 2%,100% 97%,97% 100%,93% 97%,89% 99.5%,85% 97.5%,81% 100%,77% 97%,73% 99%,69% 97.5%,65% 100%,61% 97%,57% 99.5%,53% 97.5%,49% 100%,45% 97%,41% 99%,37% 97.5%,33% 100%,29% 97%,25% 99.5%,21% 97.5%,17% 100%,13% 97%,9% 99%,5% 97.5%,1% 100%,0% 97.5%)}
+.photo-inner img{width:100%;height:100%;object-fit:cover}
+.photo-caption{position:absolute;bottom:13px;left:0;right:0;text-align:center;font-family:'Special Elite',cursive;font-size:.72rem;color:var(--grey);letter-spacing:1.5px;font-style:italic}
+.tape-h{position:absolute;width:80px;height:24px;background:var(--tape);box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:5;top:-10px;left:50%;transform:translateX(-50%) rotate(-6deg)}
+
+.year-stamp{display:inline-block;border:3px solid var(--bx);color:var(--bx);font-family:'Special Elite',cursive;padding:8px 28px;font-size:.88rem;letter-spacing:3px;background:rgba(255,255,255,.8);animation:stampSlam .6s 1.2s both;transform:rotate(-5deg)}
+
+/* Floating stickers */
+.sticker{position:absolute;font-family:'Special Elite',cursive;pointer-events:none;z-index:3}
+.sticker-tape{height:24px;background:var(--tape);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.sticker-note{background:var(--aged);border:1px solid var(--lt);padding:6px 12px;font-size:.65rem;color:var(--grey);box-shadow:2px 3px 8px rgba(0,0,0,.08)}
+.sticker-clip{font-size:1.4rem;opacity:.3}
+.sticker-grid{
+  width:60px;height:60px;opacity:.06;
+  background-image:linear-gradient(rgba(0,0,0,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.3) 1px,transparent 1px);
+  background-size:5px 5px;
+}
+
+/* ══ CONTAINER ══ */
+.ctr{max-width:940px;margin:0 auto;padding:10px 20px}
+
+/* ══ SECTION TITLE (Abril Fatface - like Sophie Petrova) ══ */
+.sec-title{
+  font-family:'Abril Fatface',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  color:var(--bx);text-transform:uppercase;
+  letter-spacing:2px;margin-bottom:8px;
+  line-height:1.1;
+}
+.sec-sub{font-family:'Special Elite',cursive;font-size:.75rem;color:var(--grey);letter-spacing:3px;text-transform:uppercase;margin-bottom:25px;padding-bottom:15px;border-bottom:2px solid var(--bx)}
+
+/* ══ PAPER CARDS ══ */
+.paper{background:var(--cream);padding:45px;position:relative;box-shadow:0 2px 15px rgba(0,0,0,.06);border:1px solid var(--lt)}
+.torn-t{clip-path:polygon(0% 2.5%,2% 1%,4% 3%,6% .5%,8% 2%,10% 1%,12% 3%,14% 0%,16% 2.5%,18% 1.5%,20% 3%,22% .5%,24% 2%,26% 3.5%,28% 1%,30% 2.5%,32% .5%,34% 3%,36% 1.5%,38% 2.5%,40% 0%,42% 3%,44% 1%,46% 2.5%,48% .5%,50% 3%,52% 1.5%,54% 2%,56% 0%,58% 3.5%,60% 1%,62% 2.5%,64% .5%,66% 3%,68% 1.5%,70% 2.5%,72% 0%,74% 3%,76% 1%,78% 2%,80% 3.5%,82% .5%,84% 2.5%,86% 1%,88% 3%,90% .5%,92% 2%,94% 3.5%,96% 1%,98% 2.5%,100% 1.5%,100% 100%,0% 100%);padding-top:55px}
+.torn-b{clip-path:polygon(0% 0%,100% 0%,100% 97%,98% 99%,96% 96.5%,94% 99.5%,92% 97%,90% 99%,88% 96.5%,86% 99%,84% 97.5%,82% 99%,80% 96.5%,78% 99.5%,76% 97%,74% 99%,72% 96.5%,70% 99%,68% 97.5%,66% 99.5%,64% 97%,62% 99%,60% 96.5%,58% 99%,56% 97.5%,54% 99.5%,52% 97%,50% 99%,48% 96.5%,46% 99%,44% 97.5%,42% 99.5%,40% 97%,38% 99%,36% 96.5%,34% 99%,32% 97.5%,30% 99.5%,28% 97%,26% 99%,24% 96.5%,22% 99%,20% 97.5%,18% 99%,16% 96.5%,14% 99.5%,12% 97%,10% 99%,8% 96.5%,6% 99%,4% 97.5%,2% 99.5%,0% 97%);padding-bottom:55px}
+
+.pin{position:absolute;width:14px;height:14px;border-radius:50%;box-shadow:1px 2px 4px rgba(0,0,0,.3);z-index:10}
+.pin.r{background:radial-gradient(circle at 35% 35%,var(--bx-l),var(--bx))}
+.pin.dk{background:radial-gradient(circle at 35% 35%,#666,#333)}
+.tape{position:absolute;height:24px;background:var(--tape);box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:5}
+.stamp{display:inline-block;border:3px solid var(--bx);color:var(--bx);font-family:'Special Elite',cursive;padding:5px 16px;text-transform:uppercase;font-size:.7rem;letter-spacing:2px;transform:rotate(-6deg);opacity:.5;position:absolute;top:18px;right:28px}
+
+p,li{font-size:.93rem;line-height:1.8;margin-bottom:8px;color:var(--dk)}
+.hw{font-family:'Special Elite',cursive;color:var(--grey)}
+
+/* ══ CV SECTION ══ */
+.cv-container{position:relative;background:var(--white);border:1px solid var(--lt);padding:15px;box-shadow:4px 5px 20px rgba(0,0,0,.08);transform:rotate(-.5deg);transition:transform .4s}
+.cv-container:hover{transform:rotate(0) scale(1.01)}
+.cv-container img{width:100%;display:block}
+.cv-tape1{position:absolute;width:80px;height:24px;background:var(--tape);top:-10px;left:30px;transform:rotate(-8deg);z-index:5}
+.cv-tape2{position:absolute;width:70px;height:24px;background:var(--tape);top:-10px;right:40px;transform:rotate(5deg);z-index:5}
+
+/* ══ FORCES / FAIBLESSES ══ */
+.trait-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.trait-col{padding:24px;background:var(--white);border:1px solid var(--lt);position:relative}
+.trait-col.str{border-top:4px solid var(--dk)}
+.trait-col.wk{border-top:4px solid var(--bx)}
+.ct{font-family:'Abril Fatface',serif;font-size:1.1rem;margin-bottom:16px;letter-spacing:1px}
+.trait-col.str .ct{color:var(--dk)}
+.trait-col.wk .ct{color:var(--bx)}
+.trait-item{border-bottom:1px solid rgba(0,0,0,.05)}
+.trait-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:12px 0;font-family:'Libre Baskerville',serif;font-size:.88rem;color:var(--dk);text-align:left;transition:.2s}
+.trait-btn:hover{color:var(--bx)}
+.trait-btn .arrow{font-size:.6rem;transition:transform .3s;flex-shrink:0;margin-left:10px;color:var(--grey)}
+.trait-btn.open .arrow{transform:rotate(180deg)}
+.trait-desc{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.83rem;line-height:1.7;color:var(--grey);padding:0}
+.trait-desc.open{max-height:300px;padding:0 0 14px}
+
+/* ══ ACTIVITIES ══ */
+.act{background:var(--cream);border:1px solid var(--lt);padding:35px 40px;margin:28px 0;position:relative;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:transform .4s cubic-bezier(.25,.8,.25,1),box-shadow .3s}
+.act:hover{transform:rotate(0deg) scale(1.003)!important;box-shadow:0 5px 25px rgba(0,0,0,.1)}
+.act:nth-child(odd){transform:rotate(-.2deg)}
+.act:nth-child(even){transform:rotate(.25deg)}
+.act-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;flex-wrap:wrap;gap:8px}
+/* Activity title in Abril Fatface */
+.act-title{font-family:'Abril Fatface',serif;font-size:1.15rem;color:var(--bx);letter-spacing:.5px}
+.act-hours{font-family:'Special Elite',cursive;background:var(--bx);color:var(--white);padding:4px 14px;font-size:.76rem;letter-spacing:1px}
+.act-sub{font-family:'Special Elite',cursive;font-size:.82rem;color:var(--grey);margin-bottom:16px;padding-bottom:10px;border-bottom:1px dashed var(--lt)}
+.act-body h4{font-family:'Special Elite',cursive;font-size:.78rem;color:var(--bx);text-transform:uppercase;letter-spacing:1.5px;margin:20px 0 8px}
+.act-body p{font-size:.9rem;text-align:justify}
+.act-skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.act-skills span{font-family:'Special Elite',cursive;font-size:.65rem;background:var(--bx-soft);border:1px solid rgba(107,29,42,.1);color:var(--bx);padding:3px 10px}
+
+/* ══ PROOF GALLERY ══ */
+.proof-t{font-family:'Special Elite',cursive;font-size:.76rem;color:var(--bx);text-transform:uppercase;letter-spacing:1.5px;margin:22px 0 10px}
+.proof-g{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.proof-wrap{position:relative;display:inline-block;transition:transform .3s}
+.proof-wrap:hover{transform:scale(1.04) rotate(-1deg);z-index:2}
+.proof-wrap .ptape{position:absolute;width:50px;height:18px;background:var(--tape);z-index:5;top:-7px;left:50%;transform:translateX(-50%) rotate(-4deg)}
+.proof-img{width:210px;height:150px;object-fit:cover;border:5px solid var(--white);box-shadow:2px 3px 12px rgba(0,0,0,.1);cursor:pointer;display:block}
+.proof-img.tall{height:210px;width:160px}
+.proof-img.wide{width:280px;height:160px}
+
+/* ══ LIGHTBOX ══ */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;cursor:pointer}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:92vh;object-fit:contain;box-shadow:0 0 60px rgba(0,0,0,.5)}
+
+.sep{text-align:center;padding:30px 0;position:relative}
+.sep-line{width:200px;height:1px;background:var(--lt);display:inline-block;vertical-align:middle}
+.sep-dot{display:inline-block;width:8px;height:8px;background:var(--bx);border-radius:50%;margin:0 15px;vertical-align:middle}
+
+footer{text-align:center;padding:40px 20px;font-family:'Special Elite',cursive;color:var(--grey);font-size:.76rem;letter-spacing:2px;margin-top:50px;border-top:3px solid var(--bx);background:var(--cream)}
+.ai-credit{font-style:italic;opacity:.35;font-size:.62rem;margin-top:6px}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stampSlam{0%{opacity:0;transform:rotate(-5deg) scale(2.5)}60%{opacity:1;transform:rotate(-5deg) scale(.95)}100%{transform:rotate(-5deg) scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
+@keyframes slideL{from{opacity:0;transform:translateX(-50px) rotate(-1deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
+@keyframes slideR{from{opacity:0;transform:translateX(50px) rotate(1deg)}to{opacity:1;transform:translateX(0) rotate(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+
+.rv{opacity:0;transition:all .8s cubic-bezier(.25,.8,.25,1)}
+.rv.v{opacity:1}
+.rv.fl{transform:translateX(-40px) rotate(-.5deg)}.rv.fl.v{transform:translateX(0) rotate(0)}
+.rv.fr{transform:translateX(40px) rotate(.5deg)}.rv.fr.v{transform:translateX(0) rotate(0)}
+.rv.fb{transform:translateY(40px)}.rv.fb.v{transform:translateY(0)}
+.rv.fp{transform:scale(.85)}.rv.fp.v{transform:scale(1)}
+
+/* Sticker animations */
+.float-anim{animation:float 4s ease-in-out infinite}
+
+@media(max-width:700px){
+  nav a{padding:10px 9px;font-size:.66rem}
+  .hero{padding:60px 15px 40px;min-height:75vh}
+  .cutout .L{font-size:clamp(1.5rem,8vw,2.3rem);padding:4px 6px}
+  .paper{padding:26px 16px}.torn-t{padding-top:38px}.torn-b{padding-bottom:38px}
+  .trait-grid{grid-template-columns:1fr}
+  .act{padding:22px 18px}.act-h{flex-direction:column}
+  .photo-frame{width:160px;height:205px}
+  .stamp{position:relative;top:auto;right:auto;margin-bottom:12px}
+  .proof-img{width:150px;height:110px}.proof-img.wide{width:200px;height:120px}
+  .sec-title{font-size:clamp(1.5rem,5vw,2.2rem)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#cv">CV</a>
+  <a href="#projet">Projet Pro</a>
+  <a href="#forces">Forces & Faiblesses</a>
+  <a href="#activites">Activités</a>
+  <a href="#synthese">Synthèse</a>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+  <!-- Decorative stickers -->
+  <div class="sticker sticker-grid" style="top:120px;left:5%;transform:rotate(15deg)"></div>
+  <div class="sticker sticker-grid" style="bottom:80px;right:8%;transform:rotate(-10deg)"></div>
+  <div class="sticker sticker-note float-anim" style="top:15%;right:8%;transform:rotate(4deg);--r:4deg">✦ 2025-2026</div>
+  <div class="sticker sticker-note float-anim" style="bottom:18%;left:6%;transform:rotate(-3deg);--r:-3deg">EPHEC — LLN</div>
+  <div class="sticker sticker-clip" style="top:20%;left:12%">📎</div>
+  <div class="sticker sticker-clip" style="bottom:25%;right:15%">📌</div>
+  <div class="sticker sticker-tape" style="width:90px;top:60px;right:15%;transform:rotate(12deg)"></div>
+  <div class="sticker sticker-tape" style="width:60px;bottom:100px;left:10%;transform:rotate(-8deg)"></div>
+
+  <div class="cutout" aria-label="Portfolio">
+    <span class="L b">P</span><span class="L a">O</span><span class="L d">R</span><span class="L c">T</span><span class="L e">F</span><span class="L b">O</span><span class="L a">L</span><span class="L d">I</span><span class="L c">O</span>
+  </div>
+  <div class="hero-name">Mayala-Luneko Loyde</div>
+  <div class="hero-sub">Technologies de l'Informatique — EPHEC</div>
+
+  <div class="photo-wrap">
+    <div class="tape-h"></div>
+    <div class="photo-frame">
+      <div class="photo-inner"><img src="images/photo-portrait.jpg" alt="Loyde Mayala-Luneko"></div>
+      <div class="photo-caption">c'est moi</div>
+    </div>
+  </div>
+  <div class="year-stamp">✦ 2025 – 2026 ✦</div>
+</header>
+
+<div class="ctr">
+
+<!-- ═══════ CV ═══════ -->
+<section id="cv" class="rv fl" style="margin-top:50px">
+  <div class="paper torn-t torn-b" style="position:relative">
+    <div class="pin r" style="top:12px;left:22px"></div>
+    <div class="pin dk" style="top:12px;right:22px"></div>
+    <div class="sticker sticker-note" style="top:15px;right:80px;transform:rotate(3deg);font-size:.6rem">📋 Mon parcours</div>
+    <div class="sec-title">Mon CV</div>
+    <div class="sec-sub">curriculum vitae</div>
+    <div class="cv-container">
+      <div class="cv-tape1"></div>
+      <div class="cv-tape2"></div>
+      <img src="images/cv.png" alt="CV de Loyde Mayala-Luneko">
+    </div>
+  </div>
+</section>
+
+<div class="sep"><span class="sep-line"></span><span class="sep-dot"></span><span class="sep-line"></span></div>
+
+<!-- ═══════ PROJET PRO ═══════ -->
+<section id="projet" class="rv fr">
+  <div class="paper torn-t torn-b" style="position:relative">
+    <div class="pin r" style="top:12px;left:50%;transform:translateX(-50%)"></div>
+    <div class="sticker sticker-tape" style="width:70px;top:-8px;left:20px;transform:rotate(-5deg)"></div>
+    <div class="sticker sticker-note float-anim" style="top:20px;right:20px;transform:rotate(2deg);--r:2deg;font-size:.58rem">🎯 Data Analysis</div>
+    <div class="sec-title">Projet Professionnel</div>
+    <div class="sec-sub">mon avenir, ma vision</div>
+
+    <p>Depuis longtemps, j'ai besoin de donner du sens à ce que je fais. J'ai toujours aimé observer, analyser et comprendre pourquoi un problème existe et comment on peut l'améliorer. C'est cette manière de réfléchir qui m'a naturellement attirée vers l'analyse des données et l'analyse fonctionnelle.</p>
+    <p>Aujourd'hui, je ne peux pas dire avec certitude lequel de ces deux métiers me correspondra le plus, mais je sais une chose : je veux travailler dans un environnement où la réflexion, la logique et la compréhension des besoins humains ont une vraie importance. Ce qui m'attire, ce n'est pas uniquement l'aspect technique mais le fait que ces métiers permettent d'avoir un réel impact en transformant les besoins humains en solutions utiles.</p>
+    <p>Le monde des données me passionne parce qu'il est partout. Derrière chaque chiffre, il y a une décision à prendre ou un problème à résoudre. Un analyste ne se contente pas de "lire des données" : il cherche à comprendre une histoire et à donner du sens à des informations parfois complexes. C'est un domaine qui demande autant de logique que de réflexion humaine, et c'est précisément cet équilibre qui me motive.</p>
+    <p>Après mon bachelier, j'aimerais poursuivre une spécialisation en Data Analysis afin d'approfondir mes compétences dans le traitement, l'interprétation et la visualisation des données. Je souhaiterais également découvrir le métier d'analyste fonctionnel à travers des certifications ou des expériences professionnelles.</p>
+    <p>Mais au-delà du métier en lui-même, mon objectif est aussi de construire une carrière qui me permette de m'ouvrir au monde. Depuis plusieurs années, l'idée de travailler dans un environnement international me motive énormément. J'ai toujours été attirée par les langues, les cultures différentes et la découverte de nouvelles façons de penser. C'est pour cette raison que je souhaite continuer à améliorer mon anglais, développer mon espagnol et, plus tard, apprendre le mandarin. Pour moi, les langues représentent bien plus qu'une compétence professionnelle : elles permettent de créer des liens, de comprendre d'autres mentalités et d'oser sortir de sa zone de confort. Je suis quelqu'un qui a besoin d'évoluer constamment. Je ne veux pas simplement obtenir un diplôme et m'arrêter là. Dans dix ans, j'aimerais travailler dans une entreprise internationale dans laquelle je me sentirai utile et épanouie, être reconnue pour ma capacité d'analyse et mon professionnalisme, tout en continuant à apprendre chaque jour.</p>
+    <p style="margin-top:18px"><strong style="font-family:'Abril Fatface',serif;font-size:1.05rem;color:var(--bx)">Je ne cherche pas seulement une carrière. Je cherche un parcours qui me ressemble.</strong></p>
+  </div>
+</section>
+
+<div class="sep"><span class="sep-line"></span><span class="sep-dot"></span><span class="sep-line"></span></div>
+
+<!-- ═══════ FORCES & FAIBLESSES ═══════ -->
+<section id="forces" class="rv fl">
+  <div class="paper torn-t torn-b" style="position:relative">
+    <div class="pin dk" style="top:12px;right:35px"></div>
+    <div class="tape" style="width:80px;top:-8px;left:25px;transform:rotate(-4deg)"></div>
+    <div class="sticker sticker-grid" style="bottom:20px;right:15px;transform:rotate(8deg)"></div>
+    <div class="sec-title">Forces & Faiblesses</div>
+    <div class="sec-sub">ce qui me définit</div>
+
+    <div class="trait-grid">
+      <div class="trait-col str">
+        <div class="ct">✦ Mes forces</div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Curieuse <span class="arrow">▼</span></button><div class="trait-desc">J'aime découvrir de nouvelles choses et comprendre comment elles fonctionnent. Quand un sujet m'intéresse, j'ai envie d'aller plus loin, de chercher par moi-même et d'en apprendre davantage. J'aime le fait de pouvoir évoluer constamment, surtout dans un domaine comme l'informatique où il y a toujours quelque chose de nouveau à découvrir.</div></div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Esprit logique <span class="arrow">▼</span></button><div class="trait-desc">J'ai souvent besoin de comprendre le "pourquoi" des choses. J'aime réfléchir, analyser les situations et essayer de trouver des solutions quand il y a un problème. Même si certaines notions me demandent du temps, j'aime prendre le temps de comprendre réellement au lieu d'apprendre sans logique.</div></div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Sens de l'écoute <span class="arrow">▼</span></button><div class="trait-desc">Je pense être quelqu'un de calme, patiente et attentive aux autres. J'aime aider quand je peux et essayer de comprendre les personnes autour de moi. Pour moi, même dans un métier technique, la manière de communiquer et de travailler avec les autres reste très importante.</div></div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Persévérante <span class="arrow">▼</span></button><div class="trait-desc">Quand quelque chose est difficile, je peux parfois être découragée au début, mais je n'aime pas abandonner. J'essaie de continuer jusqu'à comprendre ou réussir. Même si cela prend du temps, je préfère avancer petit à petit plutôt que laisser tomber.</div></div>
+      </div>
+      <div class="trait-col wk">
+        <div class="ct">✦ Mes faiblesses</div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Très théorique <span class="arrow">▼</span></button><div class="trait-desc">Parfois, je comprends la théorie d'un sujet mais j'ai besoin de plus de temps pour vraiment l'appliquer concrètement. Je dois souvent pratiquer plusieurs fois avant d'être totalement à l'aise.</div></div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Tendance à la procrastination <span class="arrow">▼</span></button><div class="trait-desc">Il m'arrive parfois de repousser certaines tâches, surtout quand elles me semblent longues ou un peu difficiles à commencer. Une fois que je m'y mets, je travaille sérieusement, mais le plus compliqué est souvent de démarrer.</div></div>
+        <div class="trait-item"><button class="trait-btn" onclick="toggle(this)">Difficulté à prioriser <span class="arrow">▼</span></button><div class="trait-desc">Il m'arrive parfois d'avoir du mal à prioriser certaines tâches, surtout lorsqu'il y en a plusieurs à gérer en même temps. J'ai tendance à vouloir tout traiter avec la même importance. J'apprends progressivement à mieux organiser mon travail et à distinguer ce qui est urgent de ce qui l'est moins.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><span class="sep-line"></span><span class="sep-dot"></span><span class="sep-line"></span></div>
+
+<!-- ═══════ ACTIVITÉS ═══════ -->
+<section id="activites" class="rv fb">
+  <div class="paper torn-t" style="margin-bottom:0;position:relative">
+    <div class="pin r" style="top:12px;left:28px"></div>
+    <div class="pin dk" style="top:12px;right:28px"></div>
+    <div class="sticker sticker-clip" style="top:20px;right:70px">📎</div>
+    <div class="sec-title">Activités</div>
+    <div class="sec-sub">acquisition de compétences</div>
+  </div>
+
+  <!-- THÈME 1 -->
+  <div class="act rv fl">
+    <div class="tape" style="width:65px;top:-9px;right:18px;transform:rotate(4deg)"></div>
+    <div class="sticker sticker-note" style="bottom:15px;right:15px;transform:rotate(2deg);font-size:.55rem">💻 SoloLearn</div>
+    <div class="act-h">
+      <div class="act-title">THÈME 1 - Informatique et logique</div>
+      <div class="act-hours">⏱ 10h</div>
+    </div>
+    <div class="act-sub">Formation introduction au langage C — SoloLearn</div>
+    <div class="act-body">
+      <h4>Analyse réflexive</h4>
+      <p>Afin de renforcer mes compétences techniques et de développer ma logique informatique, j'ai suivi une formation d'introduction au langage C sur SoloLearn.</p>
+      <p>J'ai choisi cette activité car je voulais améliorer ma compréhension des concepts techniques et sortir d'un apprentissage uniquement théorique. Même si mon projet professionnel est orienté vers la Data Analysis et l'analyse fonctionnelle, je pense qu'il est essentiel de posséder des bases solides en programmation pour comprendre le fonctionnement global des systèmes informatiques.</p>
+      <p>Durant cette formation, j'ai appris les variables, les conditions, les boucles, les fonctions, les structures de données, les pointeurs ainsi que certaines notions liées à la mémoire. J'ai réalisé différents exercices pratiques qui demandaient de réfléchir de manière logique et structurée.</p>
+      <p>Cette activité m'a parfois mise en difficulté, notamment pour comprendre certaines erreurs dans le code ou résoudre des exercices plus complexes. Mais ces difficultés ont été enrichissantes : elles m'ont appris à être plus patiente et à décomposer les problèmes étape par étape.</p>
+      <p>Le langage C est particulièrement intéressant car il oblige à être rigoureux et précis. Même si je ne souhaite pas devenir développeuse spécialisée en C, comprendre les bases de la programmation me permettra d'être plus à l'aise dans des environnements techniques et de mieux collaborer avec des équipes IT. Dans les métiers de l'analyse, comprendre la logique des systèmes et le traitement des données est un vrai plus.</p>
+      <p>Cette activité m'a aussi permis de mieux comprendre ma manière de travailler. J'ai tendance à procrastiner au début, surtout lorsque je trouve une tâche difficile et c'était un peu le cas lors de cette formation. Mais j'ai appris à mieux gérer cela en me fixant des petits objectifs concrets. Dans chaque module, je me fixais des petits objectifs simples ce qui m'a aidé à avancer étape par étape. Cette manière de faire m'a permis de rester plus concentrée.</p>
+      <div class="act-skills"><span>Logique algorithmique</span><span>Résolution de problèmes</span><span>Analyse technique</span><span>Persévérance</span><span>Autonomie</span><span>Rigueur</span></div>
+      <div class="proof-t">📎 Preuves</div>
+      <div class="proof-g">
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/certificat-c.png" alt="Certificat SoloLearn" class="proof-img wide" onclick="openLB(this)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THÈME 2 -->
+  <div class="act rv fr">
+    <div class="pin r" style="top:-7px;left:22px"></div>
+    <div class="sticker sticker-grid" style="top:10px;right:10px;transform:rotate(-5deg)"></div>
+    <div class="act-h">
+      <div class="act-title">THÈME 2 - Découverte technique</div>
+      <div class="act-hours">⏱ 4h</div>
+    </div>
+    <div class="act-sub">Labo réseau sur matériel physique — Open Lab EPHEC</div>
+    <div class="act-body">
+      <h4>Analyse réflexive</h4>
+      <p>Dans le cadre de ma formation, j'ai participé à un laboratoire réseau réalisé sur du matériel physique à l'école. Cette activité m'a permis de mieux comprendre le fonctionnement concret des réseaux informatiques et d'appliquer des notions vues en cours.</p>
+      <p>Durant ce laboratoire, j'ai manipulé différents équipements et suivi plusieurs étapes techniques pour réaliser les configurations demandées. Cette expérience m'a permis de mieux comprendre la communication entre les appareils et l'importance de chaque élément dans une infrastructure réseau.</p>
+      <p>L'aspect le plus intéressant a été le passage de la théorie à la pratique. Certains concepts qui me semblaient abstraits en cours sont devenus plus clairs grâce à la manipulation concrète du matériel. C'est exactement le type de difficulté que j'avais identifié dans mes points faibles, et cette activité m'a aidée à progresser sur cet aspect.</p>
+      <p>En fait, comprendre l'environnement technique global dans lequel les systèmes et les données fonctionnent reste important. Un analyste qui comprend l'infrastructure réseau sera toujours plus efficace dans son travail.</p>
+      <p>Ce laboratoire m'a également permis de développer ma méthodologie et ma capacité à analyser les problèmes de manière structurée.</p>
+      <div class="act-skills"><span>Compréhension réseau</span><span>Analyse technique</span><span>Rigueur</span><span>Méthodologie</span><span>Mise en pratique</span><span>Résolution de problèmes</span></div>
+      <div class="proof-t">📎 Preuves</div>
+      <div class="proof-g">
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/certificat-reseau.jpg" alt="Certificat labo réseau" class="proof-img wide" onclick="openLB(this)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THÈME 3 -->
+  <div class="act rv fl">
+    <div class="tape" style="width:70px;top:-9px;left:14px;transform:rotate(-3deg)"></div>
+    <div class="sticker sticker-note float-anim" style="top:12px;right:12px;transform:rotate(3deg);--r:3deg;font-size:.55rem">🇪🇸 ¡Hola!</div>
+    <div class="act-h">
+      <div class="act-title">THÈME 3 - Développement linguistique</div>
+      <div class="act-hours">⏱ 10h</div>
+    </div>
+    <div class="act-sub">Formation d'espagnol en ligne — Alison.com</div>
+    <div class="act-body">
+      <h4>Analyse réflexive</h4>
+      <p>Dans le cadre de mon projet professionnel, j'ai décidé de commencer l'apprentissage de l'espagnol sur la plateforme Alison.com. Cette activité représentait une manière concrète de développer les compétences linguistiques nécessaires pour travailler dans un environnement international.</p>
+      <p>Durant cette formation, j'ai travaillé le vocabulaire de base, les expressions courantes, certaines règles grammaticales ainsi que la compréhension écrite et orale. J'ai réalisé différents exercices pour mémoriser les mots et améliorer ma compréhension.</p>
+      <p>Même si cette activité semblait plus simple au départ, elle m'a demandé beaucoup de discipline et de régularité. Apprendre une langue ne se limite pas à comprendre une leçon : il faut pratiquer régulièrement pour progresser. Cette expérience m'a montré que je suis capable d'apprendre de manière autonome lorsque je suis réellement motivée.</p>
+      <p>L'apprentissage de l'espagnol est directement lié à mon projet professionnel. Mon objectif est de travailler dans un environnement international, et les langues représentent un véritable avantage. Être capable de communiquer avec des personnes de différentes nationalités facilite la collaboration et permet d'être plus ouverte sur le monde.</p>
+      <p>Cette activité m'a aussi aidée à développer d'autres compétences comme la persévérance face aux exercices difficiles et l'autonomie dans l'apprentissage et une meilleure gestion du temps.</p>
+      <div class="act-skills"><span>Communication interculturelle</span><span>Discipline</span><span>Autonomie</span><span>Persévérance</span><span>Gestion du temps</span><span>Curiosité culturelle</span></div>
+      <div class="proof-t">📎 Preuves</div>
+      <div class="proof-g">
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/espagnol-1.png" alt="Score 93%" class="proof-img" onclick="openLB(this)"></div>
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/espagnol-2.png" alt="Course completed" class="proof-img" onclick="openLB(this)"></div>
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/espagnol-3.png" alt="Certificates" class="proof-img" onclick="openLB(this)"></div>
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/espagnol-4.png" alt="Course page" class="proof-img" onclick="openLB(this)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THÈME 4 -->
+  <div class="act rv fr">
+    <div class="pin r" style="top:-7px;right:30px"></div>
+    <div class="sticker sticker-clip" style="top:8px;left:15px">📌</div>
+    <div class="act-h">
+      <div class="act-title">THÈME 4 - Expérience professionnelle</div>
+      <div class="act-hours">⏱ 10h</div>
+    </div>
+    <div class="act-sub">Job étudiant en maison de repos — Résidence 200, Bruxelles</div>
+    <div class="act-body">
+      <h4>Analyse réflexive</h4>
+      <p>Dans le cadre de mon job étudiant en maison de repos, j'avais principalement comme tâches de distribuer les repas et d'effectuer certaines tâches d'entretien. Même si cette activité n'était pas directement liée à l'informatique, elle m'a permis de développer plusieurs compétences humaines essentielles.</p>
+      <p>Cette expérience m'a appris à être plus responsable et organisée. Je devais respecter un rythme précis, être ponctuelle et effectuer mes tâches avec sérieux. Travailler en maison de repos demande aussi beaucoup de patience et de respect envers les résidents.</p>
+      <p>Le contact quotidien avec les résidents m'a permis d'améliorer ma communication et mon écoute. J'ai appris à m'adapter à différentes personnes et à rester professionnelle même lors des journées plus fatigantes.</p>
+      <p>Ce lien avec mon projet professionnel est réel : même dans les métiers de l'analyse, les compétences humaines restent importantes. Je dois être capable de communiquer, comprendre les besoins des autres et travailler avec sérieux dans un environnement professionnel.</p>
+      <p>Cette expérience m'a aussi permis de gagner en maturité. Elle m'a confirmé que les compétences techniques ne suffisent pas : le comportement professionnel, l'organisation mais aussi la capacité de s'adapter sont importantes.</p>
+      <div class="act-skills"><span>Communication</span><span>Responsabilité</span><span>Organisation</span><span>Adaptabilité</span><span>Gestion du stress</span><span>Professionnalisme</span></div>
+      <div class="proof-t">📎 Preuves</div>
+      <div class="proof-g">
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/photo-travail.jpg" alt="Photo au travail" class="proof-img tall" onclick="openLB(this)"></div>
+        <div class="proof-wrap"><div class="ptape"></div><img src="images/planning.png" alt="Planning de travail" class="proof-img wide" onclick="openLB(this)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"><span class="sep-line"></span><span class="sep-dot"></span><span class="sep-line"></span></div>
+
+<!-- ═══════ SYNTHÈSE ═══════ -->
+<section id="synthese" class="rv fb">
+  <div class="paper torn-t torn-b" style="position:relative">
+    <div class="pin r" style="top:12px;left:50%;transform:translateX(-50%)"></div>
+    <div class="stamp">Bilan Final</div>
+    <div class="sticker sticker-tape" style="width:60px;bottom:30px;left:15px;transform:rotate(6deg)"></div>
+    <div class="sec-title">Synthèse</div>
+    <div class="sec-sub">bilan de mes activités</div>
+
+    <p>Au cours de ces trois années d'études, les différentes activités que j'ai réalisées m'ont permis de grandir autant sur le plan technique que personnel. Elles m'ont surtout aidée à mieux comprendre qui je suis, comment je fonctionne et dans quelle direction je souhaite évoluer.</p>
+    <p>À travers ces expériences, j'ai compris que mon projet professionnel ne se limite pas uniquement à l'apprentissage d'outils techniques. Évoluer dans le domaine de l'analyse demande aussi des qualités humaines, de l'autonomie, de la curiosité et une réelle capacité d'adaptation. Petit à petit, j'ai appris que la manière d'apprendre et de progresser est aussi importante que les connaissances elles-mêmes.</p>
+    <p>Les activités liées aux langues m'ont confirmé mon envie de travailler dans un environnement multiculturel. Elles m'ont appris la patience, la régularité et l'importance de la persévérance dans un apprentissage progressif. Les activités techniques, comme le langage C et le laboratoire réseau, m'ont permis de développer ma logique, ma rigueur et ma compréhension globale des systèmes informatiques. Enfin, mon expérience en maison de repos m'a beaucoup apporté sur le plan humain, notamment au niveau de la communication, de la gestion du stress et du sens des responsabilités.</p>
+    <p>Ces trois années m'ont aussi permis de mieux me connaître. J'ai identifié mes points forts, comme ma curiosité, ma persévérance et ma motivation à apprendre, mais aussi certains points à améliorer, notamment au niveau de la confiance en moi et de certaines compétences techniques encore en développement. J'ai également appris à mieux organiser mon travail et à avancer étape par étape pour ne pas me sentir dépassée.</p>
+    <p>Aujourd'hui, je ne sais pas exactement ce que je serai dans dix ans, et je pense que c'est normal. Mais ce que je sais avec certitude, c'est que je veux avancer dans une direction qui me ressemble, continuer à apprendre et évoluer, et surtout être fière du chemin que j'aurai parcouru. En regardant en arrière, je veux pouvoir me dire que j'ai fait les bons choix pour construire quelque chose de solide, d'authentique et de cohérent avec la personne que je suis devenue.</p>
+  </div>
+</section>
+</div>
+
+<footer>
+  <p>Portfolio — Technologies de l'Informatique — EPHEC — 2025 / 2026</p>
+  <p class="ai-credit">Design assisté par IA</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLB()"><img id="lb-img" src="" alt=""></div>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');x.target.style.transitionDelay='0s'}})},{threshold:.05,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=`${i*.08}s`;obs.observe(el)});
+  // Parallax stickers on scroll
+  window.addEventListener('scroll',()=>{
+    const s=window.scrollY;
+    document.querySelectorAll('.float-anim').forEach(el=>{el.style.transform+=''});
+  });
+});
+function toggle(b){const d=b.nextElementSibling;const o=d.classList.contains('open');document.querySelectorAll('.trait-desc.open').forEach(x=>{x.classList.remove('open');x.previousElementSibling.classList.remove('open')});if(!o){d.classList.add('open');b.classList.add('open')}}
+function openLB(i){document.getElementById('lb-img').src=i.src;document.getElementById('lb').classList.add('open')}
+function closeLB(){document.getElementById('lb').classList.remove('open')}
+</script>
+</body>
+</html>
